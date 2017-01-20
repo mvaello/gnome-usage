@@ -3,9 +3,12 @@ autovala_version: 23
 project_name: gnome-usage
 *vala_version: 0.34
 
+*gresource: usage_gresource_xml data/usage.gresource.xml
+
 
 vala_binary: src/gnome-usage
 version: 0.3.8
+use_gresource: usage_gresource_xml
 *vala_vapi: vapis/better.vapi
 *vala_vapi: vapis/egg.vapi
 *vala_vapi: vapis/glibtop.vapi
@@ -23,10 +26,9 @@ version: 0.3.8
 *vala_check_package: gtk+-3.0
 *vala_check_package: pango
 *vala_check_package: x11
-c_library: gmodule-2.0 m rt gtop-2.0 ${CMAKE_SOURCE_DIR}/external/netinfo/libnetinfo.a pthread dl
+c_library: rg egg gmodule-2.0 m rt gtop-2.0 pthread dl ${CMAKE_SOURCE_DIR}/external/netinfo/netinfo-ffi/target/release/libnetinfo.a
 *vala_source: application.vala
 *vala_source: color-rectangle.vala
-*vala_source: cookie-graph.vala
 *vala_source: cpu-graph-table.vala
 *vala_source: cpu-graph.vala
 *vala_source: cpu-monitor.vala
@@ -50,6 +52,7 @@ c_library: gmodule-2.0 m rt gtop-2.0 ${CMAKE_SOURCE_DIR}/external/netinfo/libnet
 *vala_source: network-monitor.vala
 *vala_source: network-sub-view.vala
 *vala_source: performance-view.vala
+*vala_source: pie-chart.vala
 *vala_source: power-view.vala
 *vala_source: process-dialog.vala
 *vala_source: process-list-box.vala
@@ -57,8 +60,8 @@ c_library: gmodule-2.0 m rt gtop-2.0 ${CMAKE_SOURCE_DIR}/external/netinfo/libnet
 *vala_source: process.vala
 *vala_source: settings.vala
 *vala_source: storage-graph.vala
-*vala_source: storage-list-box.vala
 *vala_source: storage-list.vala
+*vala_source: storage-main-list-box.vala
 *vala_source: storage-row.vala
 *vala_source: storage-view.vala
 *vala_source: sub-process-list-box.vala
@@ -67,141 +70,65 @@ c_library: gmodule-2.0 m rt gtop-2.0 ${CMAKE_SOURCE_DIR}/external/netinfo/libnet
 *vala_source: utils.vala
 *vala_source: view.vala
 *vala_source: window.vala
-c_source: ../external/egg/egg-animation.c
-c_source: ../external/egg/egg-binding-group.c
-c_source: ../external/egg/egg-box.c
-c_source: ../external/egg/egg-centering-bin.c
-c_source: ../external/egg/egg-column-layout.c
-c_source: ../external/egg/egg-counter.c
-c_source: ../external/egg/egg-date-time.c
-c_source: ../external/egg/egg-empty-state.c
-c_source: ../external/egg/egg-entry-box.c
-c_source: ../external/egg/egg-file-chooser-entry.c
-c_source: ../external/egg/egg-frame-source.c
-c_source: ../external/egg/egg-heap.c
-c_source: ../external/egg/egg-list-box.c
-c_source: ../external/egg/egg-menu-manager.c
-c_source: ../external/egg/egg-pill-box.c
-c_source: ../external/egg/egg-priority-box.c
-c_source: ../external/egg/egg-radio-box.c
-c_source: ../external/egg/egg-scrolled-window.c
-c_source: ../external/egg/egg-search-bar.c
-c_source: ../external/egg/egg-settings-flag-action.c
-c_source: ../external/egg/egg-settings-sandwich.c
-c_source: ../external/egg/egg-signal-group.c
-c_source: ../external/egg/egg-simple-label.c
-c_source: ../external/egg/egg-simple-popover.c
-c_source: ../external/egg/egg-slider.c
-c_source: ../external/egg/egg-state-machine-buildable.c
-c_source: ../external/egg/egg-state-machine.c
-c_source: ../external/egg/egg-task-cache.c
-c_source: ../external/egg/egg-three-grid.c
-c_source: ../external/egg/egg-widget-action-group.c
-c_source: ../external/rg/rg-column.c
-c_source: ../external/rg/rg-cpu-graph.c
-c_source: ../external/rg/rg-cpu-table.c
-c_source: ../external/rg/rg-graph.c
-c_source: ../external/rg/rg-line-renderer.c
-c_source: ../external/rg/rg-renderer.c
-c_source: ../external/rg/rg-ring.c
-c_source: ../external/rg/rg-stacked-renderer.c
-c_source: ../external/rg/rg-table.c
 *c_source: better-box.c
 h_folder: ../external/egg
-h_folder: ../external/netinfo
+h_folder: ../external/netinfo/netinfo-ffi/src/
 h_folder: ../external/rg
 h_folder: /usr/include/libgtop-2.0
 *h_folder: .
 
 *po: po
 
-translate: c src/../external/egg/egg-animation.c
-translate: c src/../external/egg/egg-binding-group.c
-translate: c src/../external/egg/egg-box.c
-translate: c src/../external/egg/egg-centering-bin.c
-translate: c src/../external/egg/egg-column-layout.c
-translate: c src/../external/egg/egg-counter.c
-translate: c src/../external/egg/egg-date-time.c
-translate: c src/../external/egg/egg-empty-state.c
-translate: c src/../external/egg/egg-entry-box.c
-translate: c src/../external/egg/egg-file-chooser-entry.c
-translate: c src/../external/egg/egg-frame-source.c
-translate: c src/../external/egg/egg-heap.c
-translate: c src/../external/egg/egg-list-box.c
-translate: c src/../external/egg/egg-menu-manager.c
-translate: c src/../external/egg/egg-pill-box.c
-translate: c src/../external/egg/egg-priority-box.c
-translate: c src/../external/egg/egg-radio-box.c
-translate: c src/../external/egg/egg-scrolled-window.c
-translate: c src/../external/egg/egg-search-bar.c
-translate: c src/../external/egg/egg-settings-flag-action.c
-translate: c src/../external/egg/egg-settings-sandwich.c
-translate: c src/../external/egg/egg-signal-group.c
-translate: c src/../external/egg/egg-simple-label.c
-translate: c src/../external/egg/egg-simple-popover.c
-translate: c src/../external/egg/egg-slider.c
-translate: c src/../external/egg/egg-state-machine-buildable.c
-translate: c src/../external/egg/egg-state-machine.c
-translate: c src/../external/egg/egg-task-cache.c
-translate: c src/../external/egg/egg-three-grid.c
-translate: c src/../external/egg/egg-widget-action-group.c
-translate: c src/../external/rg/rg-column.c
-translate: c src/../external/rg/rg-cpu-graph.c
-translate: c src/../external/rg/rg-cpu-table.c
-translate: c src/../external/rg/rg-graph.c
-translate: c src/../external/rg/rg-line-renderer.c
-translate: c src/../external/rg/rg-renderer.c
-translate: c src/../external/rg/rg-ring.c
-translate: c src/../external/rg/rg-stacked-renderer.c
-translate: c src/../external/rg/rg-table.c
-*translate: vala src/cookie-graph.vala
-*translate: vala src/storage-list.vala
+*translate: vala src/storage-row.vala
+*translate: vala src/performance-view.vala
+*translate: vala src/window.vala
+*translate: vala src/cpu-graph.vala
 *translate: vala src/system-monitor.vala
-*translate: vala src/memory-graph.vala
+*translate: vala src/network-graph.vala
 *translate: vala src/header-bar.vala
 *translate: vala src/process-list-box.vala
 *translate: vala src/disk-graph.vala
 *translate: vala src/cpu-monitor.vala
 *translate: vala src/process-row.vala
-*translate: vala src/process-dialog.vala
 *translate: vala src/disk-sub-view.vala
 *translate: vala src/memory-monitor.vala
 *translate: vala src/graph-stack-switcher.vala
 *translate: vala src/network-graph-table.vala
 *translate: vala src/graph-box.vala
-*translate: vala src/cpu-sub-view.vala
+*translate: vala src/memory-sub-view.vala
 *translate: vala src/power-view.vala
 *translate: vala src/network-sub-view.vala
-*translate: vala src/memory-sub-view.vala
 *translate: vala src/cpu-graph-table.vala
+*translate: vala src/process-dialog.vala
 *translate: vala src/graph-block.vala
 *translate: vala src/memory-graph-table.vala
-*translate: vala src/color-rectangle.vala
+*translate: vala src/cpu-sub-view.vala
 *translate: vala src/process.vala
 *translate: vala src/network-monitor.vala
 *translate: vala src/data-view.vala
 *translate: vala src/settings.vala
+*translate: vala src/storage-main-list-box.vala
 *translate: vala src/storage-graph.vala
 *translate: vala src/view.vala
-*translate: vala src/cpu-graph.vala
-*translate: vala src/window.vala
-*translate: vala src/sub-process-list-box.vala
 *translate: vala src/sub-process-sub-row.vala
-*translate: vala src/storage-view.vala
-*translate: vala src/storage-row.vala
-*translate: vala src/storage-list-box.vala
 *translate: vala src/utils.vala
-*translate: vala src/graph-block-row.vala
-*translate: vala src/network-graph.vala
-*translate: vala src/gnome-usage.vala
+*translate: vala src/sub-process-list-box.vala
+*translate: vala src/pie-chart.vala
+*translate: vala src/color-rectangle.vala
+*translate: vala src/storage-list.vala
+*translate: vala src/storage-view.vala
+*translate: vala src/memory-graph.vala
 *translate: vala src/application.vala
+*translate: vala src/graph-block-row.vala
+*translate: vala src/gnome-usage.vala
 *translate: vala src/graph-switcher-button.vala
-*translate: vala src/performance-view.vala
 *translate: c src/better-box.c
 
-*data: data/local
-
-*doc: doc
-
 *desktop: data/org.gnome.Usage.desktop
+
+scheme: data/org.gnome.Usage.gschema.xml
+
+include: external/egg/egg.cmake
+include: external/netinfo/netinfo.cmake
+include: external/rg/rg.cmake
 

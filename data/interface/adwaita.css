@@ -1,0 +1,166 @@
+list, graph-box {
+    border: 1px solid #d3d7cf;
+}
+
+list row {
+    padding: 0;
+}
+
+list separator {
+    background: #dadada;
+}
+
+list row.max {
+    background: #fabbbb;
+    border: 1px solid #faa5a2;
+}
+
+list row.max:hover {
+    background: #faa5a2;
+    border: 1px solid #faa5a2;
+}
+
+list row.opened {
+    background: #919191;
+}
+
+list row.opened:hover {
+    background: #919191;
+}
+
+subprocess-list row {
+    padding: 0;
+    background: #f2f2f2;
+}
+
+subprocess-list row:hover {
+    background: #e2e2e2;
+}
+
+subprocess-list row.max {
+    background: #fabbbb;
+    border: 1px solid #faa5a2;
+}
+
+subprocess-list row.max:hover {
+    background: #faa5a2;
+    border: 1px solid #faa5a2;
+}
+
+graph-stack-switcher {
+    background: #fafafa;
+}
+
+graph-switcher-button {
+    padding: 6px 10px;
+    border-style: none;
+    background-color: #fafafa;
+    border-radius: 0;
+}
+
+graph-switcher-button:hover {
+    background-color: #eaebea;
+}
+
+graph-switcher-button:checked {
+    background-color: #dbdbdb;
+}
+
+graph-switcher-button:active {
+    background-color: #dbdbdb;
+    box-shadow: inset 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+scrolledwindow {
+    background: #f1f2f1;
+}
+
+rg-graph.big {
+    background-color: #ffffff;
+    background-size: 57px 57px;
+    background-image: repeating-linear-gradient(0deg, #e6e6e6, #e6e6e6 1px, transparent 1px, transparent 57px);
+}
+
+rg-graph.line {
+    color: rgba(74,144,217,1);
+}
+
+rg-graph.stacked {
+    color: rgba(74,144,217,0.325);
+}
+
+rg-graph.line_orange {
+    color: rgba(255,153,0,1);
+}
+
+rg-graph.stacked_orange {
+    color: rgba(255,153,0,0.353);
+}
+
+rg-graph.line_max {
+    color: rgba(238,34,34,1);
+}
+
+rg-graph.stacked_max {
+    color: rgba(238,34,34,0.227);
+}
+
+PieChart.used, ColorRectangle.used {
+    color: #4a90d9;
+}
+
+PieChart.others, ColorRectangle.others {
+    color: #707070;
+}
+
+PieChart.available, ColorRectangle.available {
+    color: #fafafa;
+}
+
+ColorRectangle.system {
+    color: #2e3436;
+}
+
+ColorRectangle.applications {
+    color: #4e9a06;
+}
+
+ColorRectangle.documents {
+    color: #99b9dc;
+}
+
+ColorRectangle.downloads {
+    color: #9bb8db;
+}
+
+ColorRectangle.music {
+    color: #457fd3;
+}
+
+ColorRectangle.pictures {
+    color: #3466a5;
+}
+
+ColorRectangle.videos {
+    color: #204a87;
+}
+
+ColorRectangle.others_storage {
+    color: #16325c;
+}
+
+ColorRectangle.trash {
+    color: #ef2929;
+}
+
+ColorRectangle.cache {
+    color: #fce94f;
+}
+
+ColorRectangle.user {
+    color: #ad7fa8;
+}
+
+ColorRectangle.available_storage {
+    color: #d3d7cf;
+}
